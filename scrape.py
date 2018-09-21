@@ -16,6 +16,8 @@ session = HTMLSession()
 headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36'}
 
 
+#################HELPER FUNCTIONS#################
+
 def parse(s, first, last):
 	try:
 		start = s.index( first ) + len( first )
@@ -39,6 +41,8 @@ def retrieve(ASIN):
 	url="https://www.amazon.com/dp/"+ASIN 
 	response = session.get(url, headers=headers, verify=False) 
 	print(response.html.search('a-color-price">${}<')[0]) #Extracting the price
+
+#####################################################
 
 
 def AmzonParser(url):
